@@ -22,21 +22,9 @@ webhookRouter.post("/", async (req, res) => {
     const userId = user.id;
 
     try {
-        const imageResponse = await findOrCreateImage(message, userId);
+        await findOrCreateImage(message, userId, phone);
 
-        if (imageResponse.status === "clarification_needed" || imageResponse.status === "error") {
-            twiml.message(imageResponse.messageToUser);
-        } else {
-            if (imageResponse.messageToUser) {
-                twiml.message(imageResponse.messageToUser);
-            }
-
-            if (imageResponse.imageUrl && Array.isArray(imageResponse.imageUrl)) {
-                imageResponse.imageUrl.forEach(url => {
-                    twiml.message(imageResponse.messageToUser).media(url);
-                });
-            }
-        }
+        twiml.message("I've received your request and am working on your creative! I'll send it to you as soon as it's ready.");
 
         res.writeHead(200, { "Content-Type": "text/xml" });
         res.end(twiml.toString());

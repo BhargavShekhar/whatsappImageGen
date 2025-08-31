@@ -1,0 +1,2 @@
+export declare function createTwilioMessage(phone: string, body: string, mediaUrl?: string[]): Promise<import("twilio/lib/rest/api/v2010/account/message.js").MessageInstance>;
+//# sourceMappingURL=twillio-client.service.d.ts.map

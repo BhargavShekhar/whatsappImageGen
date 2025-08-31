@@ -16,24 +16,8 @@ webhookRouter.post("/", async (req, res) => {
     });
     const userId = user.id;
     try {
-        const imageResponse = await findOrCreateImage(message, userId);
-        if (imageResponse.status === "clarification_needed" || imageResponse.status === "error") {
-            // Send a single text message for clarification or error
-            twiml.message(imageResponse.messageToUser);
-        }
-        else {
-            // First, send the initial text message to the user
-            if (imageResponse.messageToUser) {
-                twiml.message(imageResponse.messageToUser);
-            }
-            // Then, send each image in a separate message
-            if (imageResponse.imageUrl && Array.isArray(imageResponse.imageUrl)) {
-                imageResponse.imageUrl.forEach(url => {
-                    // Create a NEW message for each image URL
-                    twiml.message(imageResponse.messageToUser).media(url);
-                });
-            }
-        }
+        await findOrCreateImage(message, userId, phone);
+        twiml.message("I've received your request and am working on your creative! I'll send it to you as soon as it's ready.");
         res.writeHead(200, { "Content-Type": "text/xml" });
         res.end(twiml.toString());
     }

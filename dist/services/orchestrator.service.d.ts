@@ -1,3 +1,2 @@
-import type { OrchestratorResponse } from '../types.js';
-export declare function findOrCreateImage(message: string, userId: string): Promise<OrchestratorResponse>;
+export declare function findOrCreateImage(message: string, userId: string, phone: string): Promise<void>;
 //# sourceMappingURL=orchestrator.service.d.ts.map

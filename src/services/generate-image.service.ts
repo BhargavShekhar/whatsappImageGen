@@ -2,9 +2,9 @@ import { openAi } from "./openAi.service.js";
 
 export async function generateImage(prompt:string) {
     const res = await openAi.images.generate({
-        model: "dall-e-3",
+        model: "dall-e-2",
         prompt,
-        size: "1024x1024",  // TODO change later,
+        size: "256x256",  // TODO change later,
     })
 
     if(!res.data) {

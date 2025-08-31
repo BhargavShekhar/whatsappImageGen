@@ -4,7 +4,6 @@ export async function generateImage(prompt) {
         model: "dall-e-3",
         prompt,
         size: "1024x1024", // TODO change later,
-        quality: "hd"
     });
     if (!res.data) {
         console.log("generateImage :: could not generate image!!");
