@@ -1,0 +1,1 @@
+{"version":3,"file":"generateSignature.d.ts","sourceRoot":"","sources":["../../src/utils/generateSignature.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,gBAAgB,CAAC;AAG7C,KAAK,kBAAkB,GAAG,MAAM,CAAC,UAAU,CAAA;AAE3C,wBAAgB,iBAAiB,CAAC,SAAS,EAAE,kBAAkB,UAa9D"}
